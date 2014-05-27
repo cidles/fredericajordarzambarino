@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+        <link rel="stylesheet" type="text/css" href="css/custom.css" />
+        <script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+        <script type="text/javascript" src="js/bootstrap.min.js"></script>
+
+        <title>Quem Quer Ser Milionário</title>
+    </head>
+    <body>
+        <div id="left"></div>
+        <div id="right"></div>
+        <div id="top"></div>
+        <div id="bottom"></div>
+
+        <div id="start">
+            <div class="container">
+                <div class="row" style="margin-top:10%;">
+                    <div class="col-xs-12 text-center">Quem Quer Ser Milionário</div>   
+                </div>
+
+                <div class="row" style="margin-top:50%;" >
+                    <div class="col-xs-12 text-center">
+                        <button class="btn btn-lg btn-success" type="button" onclick="start_new_game()">Start!</button>
+                    </div>
+                </div>
+
+                <div class="row" style="margin-bottom:5%; position: absolute; bottom: 0;" >
+                    <div class="col-xs-12 text-center">
+                        <p style="font-size:10px">Copyright <span class="glyphicon glyphicon-copyright-mark"></span> João Seguro</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div id="money" style="display: none;">
+            <div class="container">
+                <div id="money15" class="row" style="margin-top:5%;">
+                    <div class="col-xs-3 text-center">15</div> 
+                    <div class="col-xs-9">1.000.000 €</div>      
+                </div>
+                <div id="money14" class="row">
+                    <div class="col-xs-3 text-center">14</div> 
+                    <div class="col-xs-9">500.000 €</div> 
+                </div>
+                <div id="money13" class="row">
+                    <div class="col-xs-3 text-center">13</div> 
+                    <div class="col-xs-9">250.000 €</div>    
+                </div> 
+                <div id="money12" class="row">
+                    <div class="col-xs-3 text-center">12</div> 
+                    <div class="col-xs-9">125.000 €</div>    
+                </div>
+                 <div id="money11" class="row">
+                    <div class="col-xs-3 text-center">11</div> 
+                    <div class="col-xs-9">64.000 €</div>    
+                </div>
+                 <div id="money10" class="row">
+                    <div class="col-xs-3 text-center">10</div> 
+                    <div class="col-xs-9">32.000 €</div>    
+                </div>
+                 <div id="money9" class="row">
+                    <div class="col-xs-3 text-center">9</div> 
+                    <div class="col-xs-9">16.000 €</div>    
+                </div>
+                 <div id="money8" class="row">
+                    <div class="col-xs-3 text-center">8</div> 
+                    <div class="col-xs-9">8.000 €</div>    
+                </div>
+                 <div id="money7" class="row">
+                    <div class="col-xs-3 text-center">7</div> 
+                    <div class="col-xs-9">4.000 €</div>    
+                </div>
+                 <div id="money6" class="row">
+                    <div class="col-xs-3 text-center">6</div> 
+                    <div class="col-xs-9">2.000 €</div>    
+                </div>
+                 <div id="money5" class="row">
+                    <div class="col-xs-3 text-center">5</div> 
+                    <div class="col-xs-9">1.000 €</div>    
+                </div>
+                 <div id="money4" class="row">
+                    <div class="col-xs-3 text-center">4</div> 
+                    <div class="col-xs-9">500 €</div>    
+                </div>
+                 <div id="money3" class="row">
+                    <div class="col-xs-3 text-center">3</div> 
+                    <div class="col-xs-9">300 €</div>    
+                </div>
+                 <div id="money2" class="row">
+                    <div class="col-xs-3 text-center">2</div> 
+                    <div class="col-xs-9">200 €</div>    
+                </div>
+                 <div id="money1" class="row" style="margin-bottom:5%;">
+                    <div class="col-xs-3 text-center">1</div> 
+                    <div class="col-xs-9">100 €</div>    
+                </div>
+
+            </div>
+        </div>
+
+        <div id="game" style="display: none;">
+            <div class="container">
+                <div class="row" style="margin-top:10%;">
+                    <div class="col-xs-1 text-center">
+                        <button class="btn btn-info" type="button" onclick="home()">
+                            <span class="glyphicon glyphicon-home"></span>
+                        </button>
+                    </div>   
+                    <div class="col-xs-3 text-center">
+                    </div>
+                    <div class="col-xs-2 text-center">
+                        <button class="btn btn-info" type="button" onclick="call()">
+                            <span class="glyphicon glyphicon-earphone"></span>
+                        </button>
+                    </div>
+                    <div class="col-xs-2 text-center">
+                        <button class="btn btn-info" type="button" onclick="publico()">
+                            <span class="glyphicon glyphicon-user"></span>
+                        </button>
+                    </div>
+                    <div class="col-xs-2 text-center">
+                        <button class="btn btn-info" type="button" onclick="fiftyfifty()">
+                            <span class="glyphicon glyphicon-transfer"></span>
+                        </button>
+                    </div>
+                </div>
+                <div id="picture_row" class="row text-center" style="margin-top:5%;">
+                    <img border="0" src="img/question_mark.png" width="55" height="55">
+                </div>
+                <div id="question_row" class="row text-center" style="margin-top:5%;">
+                    <p id="question"></p>
+                </div>
+                <div id="answer1_row" class="row text-center" style="margin-top:5%;">
+                    <button id="answer1" class="btn btn-warning" type="button"></button>
+                </div>
+                <div id="answer2_row" class="row text-center" style="margin-top:2%;">
+                    <button id="answer2" class="btn btn-warning" type="button"></button>
+                </div>
+                <div id="answer3_row" class="row text-center" style="margin-top:2%;">
+                    <button id="answer3" class="btn btn-warning" type="button"></button>
+                </div>
+                <div id="answer4_row" class="row text-center" style="margin-top:2%;">
+                    <button id="answer4" class="btn btn-warning" type="button"></button>
+                </div>
+
+
+            </div>
+        </div>
+
+        <div id="winner" style="display: none;">
+            <div class="container">
+                <div class="row" style="margin-top:10%;">
+                    <div class="col-xs-12 text-center">Quem Quer Ser Milionário</div>   
+                </div>
+
+
+            </div>
+        </div>
+
+
+
+
+
+        <script type="text/javascript" src="phonegap.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript">
+            app.initialize();
+        </script>
+    </body>
+</html>
