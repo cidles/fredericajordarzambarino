@@ -1,17 +1,23 @@
 #top, #bottom, #left, #right {
 	background: #ff4500;
 	position: fixed;
-	}
-	#left, #right {
-		top: 0; bottom: 0;
-		width: 5px;
-		}
-		#left { left: 0; }
-		#right { right: 0; }
-		
-	#top, #bottom {
-		left: 0; right: 0;
-		height: 5px;
-		}
-		#top { top: 0; }
-		#bottom { bottom: 0; }
+}
+#left, #right {
+	top: 0; bottom: 0;
+	width: 5px;
+}
+#left { left: 0; }
+#right { right: 0; }
+
+#top, #bottom {
+	left: 0; right: 0;
+	height: 5px;
+}
+#top { top: 0; }
+#bottom { bottom: 0; }
+
+
+@font-face {
+	font-family: berlin-sans-fb-demi-bold;
+	src: url('fonts/berlin-sans-fb-demi-bold.ttf');
+}
