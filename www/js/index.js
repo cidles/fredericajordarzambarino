@@ -24,7 +24,7 @@ var answered =  false;
 
 function reset_values() {
     current_question_number = 0;
-    money_won = 0;
+    money_won = "0 €";
     perguntas_usadas = [0];
     andomnumber = 0;
     answered =  false;
@@ -75,6 +75,11 @@ function next_question() {
     current_question_number++;
     $("#money" + current_question_number).css("color", "orange");
     $("#money").css( "display", "inline" );
+
+    if (current_question_number > 15) {
+        winner();
+        return;
+    }
     setTimeout(function() {back_to_game()}, 2800);
 
     //Clear answers
@@ -93,7 +98,7 @@ function next_question() {
         randomnumber = Math.floor(Math.random()*(json.length))
     }
 
-    perguntas_usadas.push(randomnumber); // NOOOOOOOT WORKING I think
+    perguntas_usadas.push(randomnumber); 
 
     if (json[randomnumber][4] != "") {
         $("#picture").attr("src", "img/" + json[randomnumber][4]);
@@ -141,6 +146,7 @@ function home() {
     $("#money").css( "display", "none" );
     $("#game").css( "display", "none" );
     $("#game_over").css( "display", "none" );
+    $("#winner").css( "display", "none" );
     $("#start").css( "display", "inline" );
 }
 
@@ -151,15 +157,78 @@ function game_over() {
     $("#game").css( "display", "none" );
     $("#start").css( "display", "none" );
     $("#game_over").css( "display", "inline" );
+}
 
+function winner() {
+    reset_values();
+    $("#money").css( "display", "none" );
+    $("#game").css( "display", "none" );
+    $("#start").css( "display", "none" );
+    $("#game_over").css( "display", "none" );
+    $("#winner").css( "display", "inline" );
+}
+
+function continue_from_help() {
+    $("#call_div").css( "display", "none" );
+    $("#publico_div").css( "display", "none" );
+    $("#game").css( "display", "inline" );
 }
 
 function call(){
 $("#call").prop('disabled', true);
+$("#call_answer").html(json[randomnumber][3]);
+$("#game").css( "display", "none" );
+$("#call_div").css( "display", "inline" );
 }
 
 function publico(){
-$("#publico").prop('disabled', true);
+	$("#publico").prop('disabled', true);
+	if (json[randomnumber][3] == 1) {
+		$("#publico_1").attr("aria-valuenow", "45")
+		$("#publico_2").attr("aria-valuenow", "10")
+		$("#publico_3").attr("aria-valuenow", "25")
+		$("#publico_4").attr("aria-valuenow", "20")
+		$("#publico_1").css("width", "45%")
+		$("#publico_2").css("width", "10%")
+		$("#publico_3").css("width", "25%")
+		$("#publico_4").css("width", "20%")
+	}
+
+	else if (json[randomnumber][3] == 2) {
+		$("#publico_1").attr("aria-valuenow", "10")
+		$("#publico_2").attr("aria-valuenow", "45")
+		$("#publico_3").attr("aria-valuenow", "25")
+		$("#publico_4").attr("aria-valuenow", "20")
+		$("#publico_1").css("width", "10%")
+		$("#publico_2").css("width", "45%")
+		$("#publico_3").css("width", "25%")
+		$("#publico_4").css("width", "20%")
+	}
+	
+	else if (json[randomnumber][3] == 3) {
+		$("#publico_1").attr("aria-valuenow", "25")
+		$("#publico_2").attr("aria-valuenow", "20")
+		$("#publico_3").attr("aria-valuenow", "45")
+		$("#publico_4").attr("aria-valuenow", "10")
+		$("#publico_1").css("width", "25%")
+		$("#publico_2").css("width", "20%")
+		$("#publico_3").css("width", "45%")
+		$("#publico_4").css("width", "10%")
+	}
+
+	else if (json[randomnumber][3] == 4) {
+		$("#publico_1").attr("aria-valuenow", "20")
+		$("#publico_2").attr("aria-valuenow", "25")
+		$("#publico_3").attr("aria-valuenow", "10")
+		$("#publico_4").attr("aria-valuenow", "45")
+		$("#publico_1").css("width", "20%")
+		$("#publico_2").css("width", "25%")
+		$("#publico_3").css("width", "10%")
+		$("#publico_4").css("width", "45%")
+	}
+
+	$("#game").css( "display", "none" );
+$("#publico_div").css( "display", "inline" );
 }
 
 function fiftyfifty(){
