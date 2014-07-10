@@ -16,7 +16,7 @@ var app = {
 };
 
 var current_question_number = 0;
-var money_won = "0 €";
+var money_won = "0 Montantes";
 var perguntas_usadas = [0];
 var json = [];
 var randomnumber = 0;
@@ -24,7 +24,7 @@ var answered =  false;
 
 function reset_values() {
     current_question_number = 0;
-    money_won = "0 €";
+    money_won = "0 Montantes";
     perguntas_usadas = [0];
     andomnumber = 0;
     answered =  false;
@@ -175,10 +175,10 @@ function continue_from_help() {
 }
 
 function call(){
-$("#call").prop('disabled', true);
-$("#call_answer").html(json[randomnumber][3]);
-$("#game").css( "display", "none" );
-$("#call_div").css( "display", "inline" );
+    $("#call").prop('disabled', true);
+    $("#call_answer").html(json[randomnumber][3] + 'ª, "' + json[randomnumber][2][ json[randomnumber][3]-1 ] + '".');
+    $("#game").css( "display", "none" );
+    $("#call_div").css( "display", "inline" );
 }
 
 function publico(){
@@ -227,8 +227,13 @@ function publico(){
 		$("#publico_4").css("width", "45%")
 	}
 
+    $("#publico_resposta_1").html(json[randomnumber][2][0]);
+    $("#publico_resposta_2").html(json[randomnumber][2][1]);
+    $("#publico_resposta_3").html(json[randomnumber][2][2]);
+    $("#publico_resposta_4").html(json[randomnumber][2][3]);
+
 	$("#game").css( "display", "none" );
-$("#publico_div").css( "display", "inline" );
+    $("#publico_div").css( "display", "inline" );
 }
 
 function fiftyfifty(){
